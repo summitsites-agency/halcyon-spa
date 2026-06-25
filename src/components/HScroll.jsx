@@ -106,7 +106,7 @@ export default function HScroll({ labels, children }) {
 
   return (
     <>
-      <header className="chrome">
+      <header className={`chrome ${active === 0 ? 'chrome--light' : ''}`}>
         <button className="chrome__brand" onClick={() => scrollToPanel(0)}>{site.brand}</button>
         <div className="chrome__right">
           <button className="chrome__book" onClick={() => scrollToPanel(count - 1)}>Book</button>
