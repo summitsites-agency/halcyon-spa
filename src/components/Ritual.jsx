@@ -5,28 +5,29 @@ import './Ritual.css';
 
 export default function Ritual() {
   return (
-    <section className="ritual section" id="ritual">
-      <div className="container ritual__inner">
-        <Reveal className="ritual__media">
-          <img src="/images/ritual.jpg" alt="A therapist preparing warm oils by candlelight" loading="lazy" />
+    <section className="pane ritual" id="ritual">
+      <div className="ritual__inner">
+        <Reveal className="ritual__head">
+          <SectionLabel index="03">The Ritual</SectionLabel>
+          <h2 className="ritual__title">Care, measured in attention.</h2>
+          <p className="ritual__text">
+            Rooms warmed before you arrive. Oils blended from organic botanicals. Therapists who
+            train for years — and it shows in the smallest details.
+          </p>
         </Reveal>
-        <div className="ritual__body">
-          <Reveal><SectionLabel index="03">The Ritual</SectionLabel></Reveal>
-          <Reveal as="h2" delay={100} className="ritual__title">Care, measured in attention.</Reveal>
-          <Reveal as="p" delay={180} className="ritual__text">
-            Every treatment begins long before you do — rooms warmed, oils blended from organic
-            botanicals, phones left at the door. Our therapists train for years, and it shows in
-            the smallest details: the weight of a hand, the pace of a breath, the quiet.
+
+        <div className="ritual__stats">
+          <Reveal className="ritual__stat">
+            <span className="ritual__num"><CountUp to={20} suffix="k+" /></span>
+            <span className="ritual__label">Hours of therapist training</span>
           </Reveal>
-          <Reveal delay={260} className="ritual__stats">
-            <div className="ritual__stat">
-              <span className="ritual__num"><CountUp to={20} suffix="k+" /></span>
-              <span className="ritual__stat-label">Hours of therapist training</span>
-            </div>
-            <div className="ritual__stat">
-              <span className="ritual__num"><CountUp to={98} suffix="%" /></span>
-              <span className="ritual__stat-label">Guests who rebook</span>
-            </div>
+          <Reveal className="ritual__stat" delay={120}>
+            <span className="ritual__num"><CountUp to={98} suffix="%" /></span>
+            <span className="ritual__label">Guests who rebook</span>
+          </Reveal>
+          <Reveal className="ritual__stat" delay={240}>
+            <span className="ritual__num"><CountUp to={12} /></span>
+            <span className="ritual__label">Signature treatments</span>
           </Reveal>
         </div>
       </div>

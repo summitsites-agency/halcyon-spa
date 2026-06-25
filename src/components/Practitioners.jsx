@@ -5,22 +5,20 @@ import './Practitioners.css';
 
 export default function Practitioners() {
   return (
-    <section className="practitioners section" id="practitioners">
-      <div className="container">
+    <section className="pane practitioners" id="practitioners">
+      <div className="practitioners__inner">
         <Reveal className="practitioners__head">
-          <SectionLabel index="04">Practitioners</SectionLabel>
+          <SectionLabel index="04">The Team</SectionLabel>
           <h2 className="practitioners__title">In gentle, expert hands.</h2>
         </Reveal>
 
-        <div className="practitioners__grid">
+        <div className="practitioners__row">
           {practitioners.map((p, i) => (
-            <Reveal key={p.id} delay={i * 100} className="practitioner">
-              <div className="practitioner__media">
-                <img src={p.image} alt={p.name} loading="lazy" />
-              </div>
-              <h3 className="practitioner__name">{p.name}</h3>
-              <p className="practitioner__role">{p.role}</p>
-              <p className="practitioner__specialty">{p.specialty}</p>
+            <Reveal as="article" key={p.id} delay={i * 120} className={`pcard pcard--${i % 3}`}>
+              <div className="pcard__media"><img src={p.image} alt={p.name} loading="lazy" /></div>
+              <h3 className="pcard__name">{p.name}</h3>
+              <p className="pcard__role">{p.role}</p>
+              <p className="pcard__spec">{p.specialty}</p>
             </Reveal>
           ))}
         </div>

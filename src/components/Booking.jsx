@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { site } from '../data/site.js';
 import { treatments } from '../data/treatments.js';
 import { validateContact } from '../lib/validateContact.js';
-import Reveal from './Reveal.jsx';
 import SectionLabel from './SectionLabel.jsx';
 import './Booking.css';
 
@@ -51,36 +50,36 @@ export default function Booking() {
   };
 
   return (
-    <section className="booking section" id="book">
-      <div className="container booking__inner">
+    <section className="pane booking" id="book">
+      <div className="booking__inner">
         <div className="booking__intro">
-          <Reveal><SectionLabel index="06">Book</SectionLabel></Reveal>
-          <Reveal as="h2" delay={100} className="booking__title">Reserve your stillness.</Reveal>
-          <Reveal as="p" delay={150} className="booking__note">
-            Send a request and our front desk will confirm your time within one business day.
-          </Reveal>
-          <Reveal as="div" delay={200} className="booking__details">
+          <SectionLabel index="06">Book</SectionLabel>
+          <h2 className="booking__title">Reserve your stillness.</h2>
+          <p className="booking__note">Send a request — our front desk confirms within one business day.</p>
+          <div className="booking__details">
             <p>{site.contact.address}</p>
             <p>{site.contact.hours}</p>
             <p><a href={`tel:${site.contact.phone.replace(/[^+\d]/g, '')}`}>{site.contact.phone}</a></p>
             <p><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
-          </Reveal>
+          </div>
         </div>
 
-        <Reveal as="form" delay={140} className="booking__form" onSubmit={onSubmit} noValidate>
-          <label className="field">
-            <span>Name</span>
-            <input value={form.name} onChange={update('name')} aria-invalid={!!errors.name} />
-            {errors.name && <em className="field__err">{errors.name}</em>}
-          </label>
-          <label className="field">
-            <span>Email</span>
-            <input type="email" value={form.email} onChange={update('email')} aria-invalid={!!errors.email} />
-            {errors.email && <em className="field__err">{errors.email}</em>}
-          </label>
+        <form className="booking__form" onSubmit={onSubmit} noValidate>
           <div className="booking__row">
             <label className="field">
-              <span>Treatment of interest</span>
+              <span>Name</span>
+              <input value={form.name} onChange={update('name')} aria-invalid={!!errors.name} />
+              {errors.name && <em className="field__err">{errors.name}</em>}
+            </label>
+            <label className="field">
+              <span>Email</span>
+              <input type="email" value={form.email} onChange={update('email')} aria-invalid={!!errors.email} />
+              {errors.email && <em className="field__err">{errors.email}</em>}
+            </label>
+          </div>
+          <div className="booking__row">
+            <label className="field">
+              <span>Treatment</span>
               <select value={form.treatment} onChange={update('treatment')}>
                 <option value="">No preference</option>
                 {treatments.map((t) => <option key={t.id} value={t.name}>{t.name}</option>)}
@@ -93,13 +92,17 @@ export default function Booking() {
           </div>
           <label className="field">
             <span>Anything we should know?</span>
-            <textarea rows={4} value={form.message} onChange={update('message')} aria-invalid={!!errors.message} />
+            <textarea rows={3} value={form.message} onChange={update('message')} aria-invalid={!!errors.message} />
             {errors.message && <em className="field__err">{errors.message}</em>}
           </label>
           <button className="pill pill--solid" type="submit" disabled={status === 'sending'}>
             {status === 'sent' ? 'Thank you' : status === 'sending' ? 'Sending…' : 'Request booking'}
           </button>
-        </Reveal>
+        </form>
+      </div>
+
+      <div className="booking__footer">
+        © {new Date().getFullYear()} {site.brandFull}. A fictional brand for demonstration.
       </div>
     </section>
   );

@@ -1,26 +1,38 @@
+import { useEffect, useState } from 'react';
 import { testimonials } from '../data/treatments.js';
-import Reveal from './Reveal.jsx';
 import SectionLabel from './SectionLabel.jsx';
 import './Testimonials.css';
 
 export default function Testimonials() {
-  return (
-    <section className="testimonials section" id="testimonials">
-      <div className="container">
-        <Reveal className="testimonials__head">
-          <SectionLabel>Kind Words</SectionLabel>
-          <h2 className="testimonials__title">What guests carry home.</h2>
-        </Reveal>
+  const [i, setI] = useState(0);
 
-        <div className="testimonials__grid">
-          {testimonials.map((t, i) => (
-            <Reveal as="figure" key={t.id} delay={i * 100} className="quote">
-              <blockquote className="quote__text">“{t.quote}”</blockquote>
-              <figcaption className="quote__by">
-                <span className="quote__name">{t.name}</span>
-                <span className="quote__detail">{t.detail}</span>
-              </figcaption>
-            </Reveal>
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const id = setInterval(() => setI((v) => (v + 1) % testimonials.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  const t = testimonials[i];
+
+  return (
+    <section className="pane testimonials" id="testimonials">
+      <div className="testimonials__inner">
+        <SectionLabel>Kind Words</SectionLabel>
+        <blockquote key={t.id} className="testimonials__quote">“{t.quote}”</blockquote>
+        <figcaption className="testimonials__by">
+          <span className="testimonials__name">{t.name}</span>
+          <span className="testimonials__detail">{t.detail}</span>
+        </figcaption>
+        <div className="testimonials__dots">
+          {testimonials.map((q, n) => (
+            <button
+              key={q.id}
+              className={n === i ? 'is-active' : ''}
+              onClick={() => setI(n)}
+              aria-label={`Quote ${n + 1}`}
+              aria-current={n === i}
+            />
           ))}
         </div>
       </div>

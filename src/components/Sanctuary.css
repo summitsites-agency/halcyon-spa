@@ -1,0 +1,16 @@
+.sanctuary { background: var(--porcelain); }
+.sanctuary__grid {
+  height: 100%; display: grid; grid-template-columns: 1.05fr .95fr;
+  align-items: center; gap: clamp(2rem, 6vw, 6rem); padding-left: var(--gutter);
+}
+.sanctuary__copy { max-width: 44ch; padding-block: clamp(4rem, 8vw, 7rem); }
+.sanctuary__lead { font-family: var(--serif); font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.2; margin-top: 1.6rem; color: var(--clay); }
+.sanctuary__text { color: var(--stone); margin-top: 1.4rem; font-size: 1.05rem; max-width: 42ch; }
+.sanctuary__media { height: 78%; align-self: center; overflow: hidden; border-radius: var(--radius) 0 0 var(--radius); }
+.sanctuary__media img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 860px) {
+  .sanctuary__grid { grid-template-columns: 1fr; padding: 6rem var(--gutter); gap: 2rem; }
+  .sanctuary__copy { padding-block: 0; }
+  .sanctuary__media { height: 56vh; border-radius: var(--radius); }
+}

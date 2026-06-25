@@ -1,4 +1,0 @@
-.philosophy { background: var(--porcelain); }
-.philosophy__inner { max-width: 980px; }
-.philosophy__lead { font-family: var(--serif); font-size: var(--h2); line-height: 1.22; margin-top: 1.6rem; color: var(--clay); }
-.philosophy__lead em { color: var(--rose-deep); font-style: italic; }

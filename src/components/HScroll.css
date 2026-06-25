@@ -1,0 +1,74 @@
+/* ---- fixed chrome (brand + book + burger) ---- */
+.chrome {
+  position: fixed; inset: 0 0 auto 0; z-index: 70;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.3rem var(--gutter);
+}
+.chrome__brand {
+  font-family: var(--serif); font-size: 1.5rem; letter-spacing: .26em; padding-left: .26em;
+  color: var(--clay); background: none; border: 0; cursor: pointer;
+}
+.chrome__right { display: flex; align-items: center; gap: 1.1rem; }
+.chrome__book {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 500; color: var(--rose); background: transparent;
+  border: 1px solid var(--rose); border-radius: 999px; padding: .6em 1.4em;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.chrome__book:hover { background: var(--rose); color: var(--porcelain); }
+.chrome__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 6px; }
+.chrome__burger span { width: 24px; height: 2px; background: var(--clay); display: block; }
+body.hscroll-stacked .chrome__burger { display: flex; }
+
+/* ---- mobile / reduced menu overlay ---- */
+.hmenu {
+  position: fixed; inset: 0; z-index: 65; background: var(--porcelain);
+  display: grid; place-items: center; opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.hmenu.is-open { opacity: 1; pointer-events: auto; }
+.hmenu ul { list-style: none; padding: 0; display: grid; gap: 1.3rem; text-align: center; }
+.hmenu button {
+  font-family: var(--serif); font-size: 1.7rem; color: var(--clay); background: none; border: 0;
+  letter-spacing: .03em; display: inline-flex; align-items: baseline; gap: .7rem;
+}
+.hmenu button em { font-family: var(--sans); font-style: normal; font-size: .7rem; letter-spacing: .2em; color: var(--rose); }
+
+/* ---- horizontal engine ---- */
+.hscroll { position: relative; }
+.hscroll.is-horizontal { height: calc(var(--panels) * 100svh); }
+.hscroll.is-horizontal .hscroll__viewport { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.hscroll.is-horizontal .hscroll__rail { display: flex; height: 100svh; will-change: transform; }
+.hscroll.is-horizontal .panel { flex: 0 0 100vw; width: 100vw; height: 100svh; overflow: hidden; }
+
+.hscroll.is-stacked .hscroll__viewport { position: static; }
+.hscroll.is-stacked .hscroll__rail { display: block; }
+.hscroll.is-stacked .panel { width: 100%; }
+
+/* panel content base — each section sets its own internal layout */
+.pane { position: relative; }
+.hscroll.is-horizontal .pane { height: 100%; }
+
+/* ---- progress bar ---- */
+.hprogress { position: fixed; left: 0; right: 0; bottom: 0; height: 3px; background: var(--hairline); z-index: 70; }
+.hprogress span { display: block; height: 100%; background: var(--rose); transform-origin: left; transform: scaleX(0); }
+
+/* ---- panel dots ---- */
+.dots {
+  position: fixed; left: 50%; bottom: 1.7rem; transform: translateX(-50%); z-index: 70;
+  display: flex; align-items: center; gap: 1rem;
+}
+.dots__dot {
+  width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--rose);
+  background: transparent; cursor: pointer; position: relative; padding: 0;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.dots__dot.is-active { background: var(--rose); transform: scale(1.3); }
+.dots__label {
+  position: absolute; bottom: 160%; left: 50%; transform: translateX(-50%); white-space: nowrap;
+  font-family: var(--sans); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--stone); opacity: 0; transition: opacity .25s var(--ease); pointer-events: none;
+}
+.dots__dot:hover .dots__label, .dots__dot.is-active .dots__label { opacity: 1; }
+
+body.hscroll-stacked .dots, body.hscroll-stacked .hprogress { display: none; }

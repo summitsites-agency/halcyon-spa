@@ -1,29 +1,19 @@
 import { gallery } from '../data/treatments.js';
-import Reveal from './Reveal.jsx';
-import SectionLabel from './SectionLabel.jsx';
 import './Gallery.css';
 
 export default function Gallery() {
   return (
-    <section className="gallery section" id="gallery">
-      <div className="container">
-        <Reveal className="gallery__head">
-          <SectionLabel index="05">Gallery</SectionLabel>
-          <h2 className="gallery__title">Inside the sanctuary.</h2>
-        </Reveal>
-        <div className="gallery__grid">
-          {gallery.map((item, i) => (
-            <Reveal key={i} delay={(i % 3) * 90} className={`gallery__item span-${item.span}`}>
-              {item.type === 'video' ? (
-                <video autoPlay muted loop playsInline poster={item.poster} aria-label={item.alt}>
-                  <source src={item.src} type="video/mp4" />
-                </video>
-              ) : (
-                <img src={item.src} alt={item.alt} loading="lazy" />
-              )}
-            </Reveal>
-          ))}
-        </div>
+    <section className="pane gallery" id="gallery">
+      <div className="gallery__strip">
+        {gallery.map((g, i) => (
+          <figure className={`gphoto ${g.span === 2 ? 'gphoto--wide' : 'gphoto--std'}`} key={i}>
+            <img src={g.src} alt={g.alt} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div className="gallery__tag">
+        <span>05 — Gallery</span>
+        <h2>Inside the sanctuary</h2>
       </div>
     </section>
   );

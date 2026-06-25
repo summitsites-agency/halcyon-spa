@@ -1,31 +1,26 @@
-import Nav from './components/Nav.jsx';
+import HScroll from './components/HScroll.jsx';
 import Hero from './components/Hero.jsx';
-import Philosophy from './components/Philosophy.jsx';
+import Sanctuary from './components/Sanctuary.jsx';
 import Treatments from './components/Treatments.jsx';
 import Ritual from './components/Ritual.jsx';
 import Practitioners from './components/Practitioners.jsx';
 import Gallery from './components/Gallery.jsx';
 import Testimonials from './components/Testimonials.jsx';
-import CTABand from './components/CTABand.jsx';
 import Booking from './components/Booking.jsx';
-import Footer from './components/Footer.jsx';
+
+const LABELS = ['Home', 'Sanctuary', 'Treatments', 'Ritual', 'Team', 'Gallery', 'Voices', 'Book'];
 
 export default function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Philosophy />
-        <Treatments />
-        <Ritual />
-        <Practitioners />
-        <Gallery />
-        <Testimonials />
-        <CTABand />
-        <Booking />
-      </main>
-      <Footer />
-    </>
+    <HScroll labels={LABELS}>
+      <Hero />
+      <Sanctuary />
+      <Treatments />
+      <Ritual />
+      <Practitioners />
+      <Gallery />
+      <Testimonials />
+      <Booking />
+    </HScroll>
   );
 }
