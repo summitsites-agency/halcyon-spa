@@ -1,0 +1,35 @@
+:root {
+  /* palette — Cream & Blush (light) */
+  --porcelain:  #FAF6F1;  /* page base — warm off-white */
+  --linen:      #F2E9E0;  /* alt sections / cards */
+  --blush-wash: #F6E4E0;  /* soft accent background wash */
+  --clay:       #3D3531;  /* primary text — warm deep taupe */
+  --stone:      #8A7E76;  /* secondary text */
+  --rose:       #C2867F;  /* accent */
+  --rose-deep:  #A86A63;  /* accent hover */
+  --clay-dim:   rgba(61, 53, 49, .70); /* muted text over media */
+  --hairline:   rgba(61, 53, 49, .12); /* borders / dividers */
+
+  /* type */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Jost', system-ui, sans-serif;
+
+  /* fluid scale */
+  --display: clamp(3.2rem, 12vw, 9rem);
+  --h1: clamp(2.6rem, 7vw, 5.5rem);
+  --h2: clamp(2rem, 4.5vw, 3.4rem);
+  --h3: clamp(1.4rem, 2.6vw, 1.9rem);
+  --body: clamp(1rem, 1.15vw, 1.125rem);
+  --label: .72rem;
+  --eyebrow-ls: .3em;
+
+  /* spacing */
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --radius: 16px;
+  --maxw: 1280px;
+
+  /* motion */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --reveal-dur: .9s;
+}

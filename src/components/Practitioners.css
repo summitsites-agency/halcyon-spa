@@ -1,0 +1,13 @@
+.practitioners { background: var(--linen); }
+.practitioners__head { margin-bottom: clamp(2.5rem, 6vw, 4.5rem); }
+.practitioners__title { font-size: var(--h2); margin-top: 1rem; }
+.practitioners__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
+
+.practitioner__media { overflow: hidden; border-radius: var(--radius); margin-bottom: 1.4rem; }
+.practitioner__media img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: transform .8s var(--ease); }
+.practitioner:hover .practitioner__media img { transform: scale(1.04); }
+.practitioner__name { font-family: var(--serif); font-size: var(--h3); }
+.practitioner__role { color: var(--rose); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin-top: .4rem; font-weight: 500; }
+.practitioner__specialty { color: var(--stone); margin-top: .5rem; }
+
+@media (max-width: 820px) { .practitioners__grid { grid-template-columns: 1fr; max-width: 420px; } }

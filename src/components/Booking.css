@@ -1,0 +1,25 @@
+.booking { background: var(--linen); }
+.booking__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); }
+.booking__title { font-size: var(--h2); margin-top: 1rem; }
+.booking__note { color: var(--stone); margin-top: 1rem; max-width: 34ch; }
+.booking__details { margin-top: 1.6rem; color: var(--stone); display: grid; gap: .5rem; }
+.booking__details a:hover { color: var(--rose-deep); }
+
+.booking__form { display: grid; gap: 1.2rem; align-content: start; }
+.booking__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.field { display: grid; gap: .45rem; }
+.field span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); }
+.field input, .field select, .field textarea {
+  background: var(--porcelain); border: 1px solid var(--hairline); color: var(--clay);
+  padding: .85rem 1rem; border-radius: 10px; font: inherit; transition: border-color .3s var(--ease);
+}
+.field input::placeholder { color: var(--stone); opacity: .7; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--rose); }
+.field textarea { resize: vertical; }
+.field__err { color: #B4554B; font-size: .78rem; font-style: normal; }
+.booking__form .pill { justify-self: start; margin-top: .4rem; border: 0; }
+
+@media (max-width: 820px) {
+  .booking__inner { grid-template-columns: 1fr; }
+  .booking__row { grid-template-columns: 1fr; }
+}

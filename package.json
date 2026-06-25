@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "placeholders": "node scripts/placeholders.mjs",
     "transcode": "node scripts/transcode.mjs"
   },
   "dependencies": {

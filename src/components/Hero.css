@@ -1,0 +1,21 @@
+.hero { position: relative; height: 100svh; min-height: 600px; overflow: hidden; display: grid; place-items: center; }
+.hero__media { position: absolute; inset: -6% 0; will-change: transform; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; }
+.hero__scrim {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 38%, rgba(250, 246, 241, .55) 0%, rgba(250, 246, 241, .12) 45%, transparent 70%),
+    linear-gradient(180deg, rgba(250, 246, 241, .30) 0%, rgba(250, 246, 241, .05) 40%, rgba(250, 246, 241, .96) 100%);
+}
+.hero__content { position: relative; z-index: 2; text-align: center; padding: 0 var(--gutter); }
+.hero__wordmark { font-size: var(--display); font-weight: 400; letter-spacing: .14em; padding-left: .14em; line-height: .94; color: var(--clay); }
+.hero__sub { font-family: var(--sans); text-transform: uppercase; letter-spacing: .5em; padding-left: .5em; font-size: .78rem; color: var(--clay-dim); margin-top: .6rem; font-weight: 500; }
+.hero__tagline { font-family: var(--serif); font-style: italic; font-size: var(--h3); color: var(--rose-deep); margin-top: 1.6rem; }
+
+.hero__cue { position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%); z-index: 2; }
+.hero__cue-line { display: block; width: 1px; height: 56px; background: linear-gradient(var(--rose), transparent); animation: cue 2.2s var(--ease) infinite; }
+@keyframes cue {
+  0%, 100% { opacity: .3; transform: scaleY(.6); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) { .hero__cue-line { animation: none; } }
