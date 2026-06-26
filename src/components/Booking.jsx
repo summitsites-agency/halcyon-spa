@@ -103,6 +103,7 @@ export default function Booking() {
 
       <div className="booking__footer">
         © {new Date().getFullYear()} {site.brandFull}. A fictional brand for demonstration.
+        <span className="booking__agency">This website is the property of, and was made by, Summit Sites Agency · © 2026.</span>
       </div>
     </section>
   );
